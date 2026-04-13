@@ -109,7 +109,7 @@ This simulator was built to:
 3. Each sender:
    * Waits for a random time based on backoff algorithm
 4. Retries transmission
-5. If a packet is in the reciver channel all packets at the bus will be retransmitted after waiting for random time based on backoff algorithm.
+5. If a packet is already in the receiver channel all packets at the bus will be retransmitted after waiting for random time based on backoff algorithm.
 6. If attempts exceed 16 → **packet is dropped**
 
 ### Important Note
