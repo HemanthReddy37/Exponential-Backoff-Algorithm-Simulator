@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>✨ Exponential Backoff · Drop after >16 collisions ✨</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link 
+       rel="stylesheet"
+       href="style.css"
+    />
+     
+    </head> 
+   <body>
+    <div class="dashboard">
+      <div class="sim-panel">
+        <h2>
+          <i class="fas fa-bolt"></i> Exponential Backoff · Drop after
+          <strong>>16</strong> collisions
+        </h2>
+        <div class="control-bar">
+          <div class="mode-group">
+            <label
+              ><input type="checkbox" id="autoModeCheckbox" checked />
+              <i class="fas fa-robot"></i> Auto</label
+            >
+            <label
+              ><input type="checkbox" id="randomModeCheckbox" disabled />
+              <i class="fas fa-dice-d6"></i> Random</label
+            >
+          </div>
+          <div id="controls" class="sender-toggles"></div>
+          <div class="action-buttons">
+            <button class="btn-primary" id="startBtn">
+              <i class="fas fa-play"></i> Start
+            </button>
+            <button class="btn-pause" id="pauseBtn" disabled>
+              <i class="fas fa-pause"></i> Pause
+            </button>
+            <button class="btn-resume" id="resumeBtn" disabled>
+              <i class="fas fa-play"></i> Resume
+            </button>
+            <button class="btn-report" id="reportBtn">
+              <i class="fas fa-chart-simple"></i> Final Report
+            </button>
+          </div>
+        </div>
+        <div id="sender-action-panel" class="sender-actions"></div>
+        <div id="network"></div>
+        <div id="statsContainer" class="stats-container">
+          <div class="stats-title">
+            <i class="fas fa-chart-line"></i> Live Per‑Sender Statistics
+          </div>
+          <table id="statsTable" class="stats-table">
+            <thead>
+              <tr>
+                <th>Sender</th>
+                <th>Collisions</th>
+                <th>Defers</th>
+                <th>Total Wait (ms)</th>
+                <th>Sent</th>
+                <th>Delivered</th>
+                <th>Dropped</th>
+              </tr>
+            </thead>
+            <tbody id="statsTableBody"></tbody>
+          </table>
+          <div id="globalCollisions" class="global-collisions"></div>
+        </div>
+        <footer>
+          <i class="fas fa-broadcast-tower"></i> ⚡ Drop only when attempt
+          counter <strong>>16</strong> (i.e., after the 16th collision). ⚡
+        </footer>
+      </div>
+      <div class="right-panel">
+        <div class="log-header">
+          <h3><i class="fas fa-list-ul"></i> Event Log</h3>
+          <button
+            id="clearLogBtn"
+            style="background: #334155; color: white; padding: 4px 12px"
+          >
+            <i class="fas fa-trash"></i> Clear
+          </button>
+        </div>
+        <div id="logList"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+   </body>
+</html>
